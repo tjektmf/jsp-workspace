@@ -1,0 +1,15 @@
+@charset "EUC-KR";
+
+#gugudan{
+	display: grid;
+	grid-template-comumns: repeat(8,1fr);
+}
+
+.dan{
+	background-color: black;
+	color: white;
+}
+
+.data{
+	
+}
