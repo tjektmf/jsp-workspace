@@ -150,6 +150,19 @@
 			</tr>
 
 			<tr>
+				<th>select:</th>
+				<!-- select 문에서 req.getParameter(name)를 통해 값을 가져올 때에는
+				같은 name 속성을 가지는 select 문에서 선택한 옵션을 선택하며 
+				옵션에서 value 속성에 입력된 값을 불러옴 
+				고른 값 자체 말고 그 값이 가지고 있는 value 값을 불러옴-->
+				<td><select name="my-name" id="my">
+						<option value="seo">seo2</option>
+						<option value="da">da2</option>
+						<option value="seul">seul2</option>
+				</select></td>
+			</tr>
+
+			<tr>
 				<td><input type="submit" /></td>
 				<!-- 데이터 전송 -->
 				<td><input type="reset" /></td>

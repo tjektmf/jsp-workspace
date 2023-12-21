@@ -14,7 +14,7 @@ public class FormTestServlet extends HttpServlet {
 	// doGet() : GET 방식을 요청받으면 호출되는 메서드
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// GET 방식의 암묵적인 뜻 : DB에서 꺼낸 데이터를 가져가겠다 get
+		// GET 방식의 암묵적인 뜻 : DB에서 꺼낸 데이터를 가져가겠다 get하겠다
 		System.out.println("GET");
 		System.out.println("GET : " + req.getParameter("user-name"));
 		System.out.println("GET : " + req.getParameter("user-age"));
@@ -39,15 +39,18 @@ public class FormTestServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		System.out.println("Service가 호출됨");
-		super.service(req, resp); // 이 한 줄의 코드가 원래 서비스의 역할임
+		//super.service(req, resp); // 이 한 줄의 코드가 원래 서비스의 역할임
 		System.out.println(req);
 		// form으로 보낸 데이터는 req.getParameter(name)으로 꺼낼 수 있다
 
+		System.out.println("-----------");
 		System.out.println(req.getParameter("user-name"));
 		System.out.println(req.getParameter("user-age"));
 		System.out.println(req.getParameter("user-password"));
 		System.out.println(req.getParameter("user-key"));
 		System.out.println(req.getParameter("user-color"));
+		System.out.println(req.getParameter("my-name"));
+		System.out.println("-----------");
 
 		resp.getWriter().append("<h1>check</h1>");
 		// 요청 방식은 요청 객체가 가지고있음
