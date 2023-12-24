@@ -25,7 +25,6 @@
 	
 	즉 모든 클래스를 숨김처리 한 후, 포문과 이프문을 적절히 활용해 보여줄 탭에만 show 클래스부여하면서 탭전환함
 */
-
 #toppings {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -65,7 +64,7 @@
 		<button onclick="showTab(2);" class="tabBtn">치즈</button>
 
 		<div id="topping" class="tabContent show">
-		<!--  모든 div를 각각 안보이게 하는게 아니라 8개의 div를 포함하는 부모 div 하나만 숨기면 됨 
+			<!--  모든 div를 각각 안보이게 하는게 아니라 8개의 div를 포함하는 부모 div 하나만 숨기면 됨 
 		전환할 탭 중 하나에는 show를 부여해놔야 보기에 깔끔함 
 		이거 자바스윙에서 레이아웃 나누던거랑 느낌 비슷함 초기설계 중요함 생각 -->
 			<div id="toppings">
@@ -115,7 +114,6 @@
 				}
 			}
 		}
-		
 	</script>
 
 

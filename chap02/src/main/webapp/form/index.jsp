@@ -53,24 +53,37 @@
 			글자까지 전부 라벨로 묶어서 선택이 가능하게 하는 개념 
 			radio 태그의 id 속성과 label 태그의 for 속성을 이용해 지정함-->
 
-			<td><input type="radio" name="lunch" id="hotbar" /> <label
-				for="hotbar">핫바</label><br> <input type="radio" name="lunch"
-				id="rice" /> <label for="rice">밥버거</label><br> <input
-				type="radio" name="lunch" id="cken" /> <label for="cken">치킨</label><br>
+			<td>
+				<input type="radio" name="lunch" id="hotbar"> 
+				<label for="hotbar">핫바</label><br> 
+				
+				<input type="radio" name="lunch" id="rice">
+				<label for="rice">밥버거</label><br> 
+				
+				<input type="radio" name="lunch" id="cken">
+				<label for="cken">치킨</label><br>
 
-				<input type="radio">라면<br></td>
-			<td>여러 옵션 중 선택</td>
+				<input type="radio" >라면<br></td>
+			<td>여러 옵션 중 선택ㅇㅇ</td>
 		</tr>
 
 		<tr>
 			<!-- checkbox에도 label을 달아줄 수 있음 -->
 			<td>checkbox</td>
-			<td><input type="checkbox" name="chi" id="cken1" /> <label
-				for="cken1">핫후라이드</label><br> <input type="checkbox" name="chi"
-				id="cken2" /> <label for="cken2">양념</label><br> <input
-				type="checkbox" name="chi" id="cken3" /> <label for="cken3">간장</label><br>
+			
+			<td>
 
-				<input type="checkbox" name="chi" id="cken4" /> <label for="cken">테스트치킨</label>
+			<input type="checkbox" name="chi" id="cken1" /> 
+			<label for="cken1">핫후라이드</label><br> 
+			
+			<input type="checkbox" name="chi" id="cken2" /> 
+			<label for="cken2">양념</label><br> 
+			
+			<input type="checkbox" name="chi" id="cken3" /> 
+			<label for="cken3">간장</label><br>
+			
+			<input type="checkbox" name="chi" id="cken4" /> 
+			<label for="cken">테스트치킨</label>
 
 				<!-- 테스트 치킨은 for 속성이 cken이라 글자를 누르면 위에 radio 타입에서 label cken을 준 치킨이 선택됨
 			근데 글자 말고 체크박스를 누르면 id가 cken이지만 테스트치킨이 정상적으로 선택됨 
@@ -81,6 +94,8 @@
 			이것저것 해봤는데 뭔가 일률적이지 않고 다르게 적용됨 
 			 --></td>
 			<td>중복 선택 가능</td>
+			
+			<!--  radio는 여러개 중 하나만 선택 checkbox는 중복선택 가능 -->
 		<tr>
 			<td>textarea</td>
 			<td><textarea name="" id="" cols="30" rows="10"></textarea></td>
