@@ -16,10 +16,13 @@ public class ForwardTestServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		// 하나의 서블릿에서 URI를 통해 여러 종류의 요청을 처리하는 것도 가능함
+		
 		String uri = req.getRequestURI();
+		/*
 		System.out.println(req.getRequestURI());
 		System.out.println(req.getParameter("firstName"));
 		System.out.println(req.getParameter("lastName"));
+		*/
 
 		// 다른 서블릿으로 포워딩 (경로는 Webapp 이하의 경로를 사용)
 
@@ -28,7 +31,7 @@ public class ForwardTestServlet extends HttpServlet {
 
 			// RequestDispatcher : 요청을 분배해줄 수 있는 객체
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/forward/page1.jsp");
-
+			System.out.println("테스트 1");
 			// forward : 응답을 마무리하지 않고 다음 페이지에서 처리를 이어나감
 			dispatcher.forward(req, resp);
 		} else if(uri.equals("/chap03/forward/test/2")) {
@@ -36,6 +39,7 @@ public class ForwardTestServlet extends HttpServlet {
 			// 경로는 클라이언트 입장에서의 URL 경로를 사용
 			// 기본적으로 기존의 데이터는 전달불가능
 			// 주소 뒤에 get방식 파라미터를 추가하는 것은 가능, post방식은 불가능함
+			System.out.println("테스트 2");
 			resp.sendRedirect("/chap03/forward/page1.jsp?firstName=ds&lastName=go");
 		}
 

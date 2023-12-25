@@ -12,7 +12,9 @@
 
 <p>
 	<%= request.getParameter("firstName") %> <br>
-	<% out.print(request.getParameter("lastName")); %>
+	<% out.print(request.getParameter("lastName"));%> <br>
+	<% out.print("µð½ºÆÐÃÄ°¡ ¿Å°ÜÁÜ");%> <br>
+	<%= "dispatcher.forward(req, resp) ¾ê°¡ ¿Å°ÜÁÜ" %>
 </p>
 
 </body>

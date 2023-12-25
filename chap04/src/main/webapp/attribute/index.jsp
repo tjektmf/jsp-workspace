@@ -39,6 +39,7 @@
 
 	<ul>
 		<li>application : <%=application.getAttribute("food")%></li>
+		<li><%out.print("application : "+ application.getAttribute("food")); %></li>
 		<li>session : <%=session.getAttribute("food")%></li>
 		<li>request : <%=request.getAttribute("food")%></li>
 		<li>page : <%=pageContext.getAttribute("food")%></li>
@@ -61,10 +62,22 @@
 	<br>
 
 	<script>
+	// 뒤에 scope=xxxx 값은 파라미터를 대충 임의로 만들어서 if문에 사용하기 위함
+	// &scope=application&babo=1 여기서 scope와 babo 둘다 임의로 만든 값임
+	// http://localhost:1527/chap04/attribute/add.jsp?food=orange&scope=application&babo=1
+	// 실제 주소는 이런식으로 add.jsp 이후 ? 뒤로는 전부 파라미터값으로 뭐가 나와도 화면은 똑같음
+	// location.href는 새로운 페이지로 이동하며 히스토리가 기록되는 객체의 속성이며
+	// 사용 예시) location.href='abc.php';
+	// location.replace()는 기존 페이지를 새로운 페이지로 변경시키며 히스토리가 기록되지 않는 메서드이다.
+	// 사용 예시) location.replace('abc.php');
+	// replace는 현재 페이지를 새로운 페이지로 덮어 씌우기 때문에 이전 페이지로 이동이 불가하며
+	// 보안이 필요하거나 이전으로 돌아갈 필요가 없는 경우 사용하면 좋을듯
+	
+			
 	const applicationBtn = document.getElementById("application");
 	const applicationInput = document.getElementById("applicationInput");
 	applicationBtn.addEventListener('click', (e)=>{
-		location.href = '/chap04/attribute/add.jsp?food=' + applicationInput.value + '&scope=application';
+		location.href = '/chap04/attribute/add.jsp?food=' + applicationInput.value + '&scope=application&babo=1';
 		
 	});
 	
