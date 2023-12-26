@@ -60,6 +60,12 @@
 	<input id="pageInput" type="text" value="orange" name="food" />
 	<button id="page">page에 데이터 추가하기</button>
 	<br>
+	
+	<hr />
+	
+	<div>
+		<a href="/chap04/session/index.jsp">세션 보러가기</a>
+	</div>
 
 	<script>
 	// 뒤에 scope=xxxx 값은 파라미터를 대충 임의로 만들어서 if문에 사용하기 위함
