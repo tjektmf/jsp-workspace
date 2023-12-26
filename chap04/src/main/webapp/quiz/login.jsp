@@ -1,52 +1,26 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
-
 <%
+HashMap<String, String> logInMap = new HashMap<>();
+String getId = request.getParameter("id");
+String getPw = request.getParameter("pw");
 
-request.getRequestDispatcher("/quiz/ok.jsp").forward(request, response);
-//	List<Member> mems = application.getAttribute("members");
-String[] getId = new String[100];
-String[] getPw = new String[100];
-boolean real = false;
+// 널이면 해당 값을 추가함 회원가입과 동시에 로그인
+if (application.getAttribute(getId) == null) {
+	logInMap.put(getId, getPw);
+	application.setAttribute(getId, logInMap.get(getId));
+	request.getRequestDispatcher("/quiz/check.jsp").forward(request, response);
 
-for (int i = 0; i < 100; i++) {
-	//for (int j = 0; j < i; j++) {
-
-	if (application.getAttribute("id" + i) == null
-	//	&& application.getAttribute("id" + i) != application.getAttribute("id" + j)
-	) {
-		real = true;
-	}
-	//	}
-	if (real) {
-		getId[i] = request.getParameter("id");
-		getPw[i] = request.getParameter("pw");
-		application.setAttribute("id" + i, getId[i]);
-		application.setAttribute("pw" + i, getPw[i]);
-		//	request.getRequestDispatcher("/quiz/index.jsp").forward(request, response);
-	}
+	// 널이 아니면 중복인지 확인해서 중복이면 인덱스로 보내버림
+} else if (application.getAttribute(getId).equals(logInMap)) {
+	request.getRequestDispatcher("/quiz/index.jsp").forward(request, response);
+} else {
+	// 널도 아니고 중복도 아님
+	out.print("<div>" + logInMap + "</div>");
 }
-for (int i = 0; i < 100; i++) {
-	if (getId[i] != null) {
-
-		if (request.getParameter("id") == application.getAttribute(getId[i])
-		&& request.getParameter("pw") == application.getAttribute(getPw[i])) {
-	request.getRequestDispatcher("/quiz/ok.jsp").forward(request, response);
-		} else {
-	out.println("뭔가 잘못됨");
-	//request.getRequestDispatcher("/quiz/ok.jsp").forward(request, response);
-		}
-	}
-}
-/*
-String id = request.getParameter("id");
-application.setAttribute("id", id);
-
-String pw = request.getParameter("pw");
-application.setAttribute("pw", pw);
-*/
 %>
 
 <!DOCTYPE html>

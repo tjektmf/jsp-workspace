@@ -20,12 +20,14 @@
 	</ul>
 
 	<form action="/chap04/quiz/login.jsp" method="get">
-		<input id="uniqueInput" type="text" placeholder="ID" value=""
-			name="id" />
-		<button id="unique">중복체크</button>
-		<br> <br> <input id="passInput" type="text"
-			placeholder="password" value="" name="pw" /> <br> <br> <input
-			type="submit" value="로그인" /> <br /> <br />
+	
+		<input id="uniqueInput" type="text" placeholder="ID" value=""name="id" />
+	<!--  	<button id="unique">중복체크</button><br> <br> -->
+		
+		<input id="passInput" type="text" placeholder="password" value="" name="pw" />
+		 <br> <br>
+		 
+		<input type="submit" value="로그인" /> <br /> <br />
 
 	</form>
 	<button id="member">회원가입</button>

@@ -9,10 +9,10 @@ application.setAttribute("memo", text);
 for (int i = 0; i < 10; i++) {
 	if (application.getAttribute("" + i) == null) {
 		application.setAttribute("" + i, text);
-		out.print(application.getAttribute("" + i) + "\n");
+		out.print(application.getAttribute("" + i) + "<br>");
 		break;
 	} else {
-		out.print(application.getAttribute("" + i) + "\n");
+		out.print(application.getAttribute("" + i) + "<br>");
 	}
 }
 %>
