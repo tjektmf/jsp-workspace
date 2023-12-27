@@ -20,6 +20,7 @@ if (session.getAttribute("login") != null) {
 	<!-- 
 		form 범위 밖에 있어도 form 에 id 속성을 주고 각 요소에 form 속성을 이용하면 form tag 범위와 상관없이 엮을 수 있음 
 		아래에서는 form1을 폼 id로 주고 각 요소에 폼 속성을 추가함
+		버튼에도 서밋타입을 줄 수 있음 인풋태그로만 줘야하는건 아님
 	-->
 	id :
 	<input type="text" name="id" form="form1" />

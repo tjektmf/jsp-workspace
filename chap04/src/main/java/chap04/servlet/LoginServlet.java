@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/quiz2/login/")
 public class LoginServlet extends HttpServlet {
 
+	// loginForm.jsp에서 post 타입으로 요청을 보냄 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// JSP 에서 자동으로 만들어져 있는 객체 (JSP 내장객체)
-		// 서블릿에서는 직접 만들어야함
+		// 서블릿에서는 application, session 객체를 직접 만들어야함
 		ServletContext application = req.getServletContext();
 		HttpSession session = req.getSession();
 
