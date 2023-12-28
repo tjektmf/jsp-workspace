@@ -1,0 +1,17 @@
+* {
+	box-sizing: border-box;
+}
+
+#main {
+	border: 1px red solid;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#main>* {
+	border: 1px red solid;
+}
+
+.aa{
+	border: orange 1px solid;
+}
