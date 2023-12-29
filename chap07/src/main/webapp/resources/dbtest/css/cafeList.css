@@ -1,0 +1,15 @@
+*{
+	box-sizing: border-box;
+	
+}
+
+.cafe-list{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cafe-list>*{
+	padding: 5px;
+	text-align: center;
+	border: 1px red solid;
+}
