@@ -5,6 +5,7 @@ public class CafeDTO {
 	String coffee_name;
 	int coffee_price;
 	String coffee_size;
+	int coffee_number;
 
 	public String getCoffee_name() {
 		return coffee_name;
@@ -30,16 +31,25 @@ public class CafeDTO {
 		this.coffee_size = coffee_size;
 	}
 
-	public CafeDTO(String coffee_name, int coffee_price, String coffee_size) {
+	public int getCoffee_number() {
+		return coffee_number;
+	}
+
+	public void setCoffee_number(int coffee_number) {
+		this.coffee_number = coffee_number;
+	}
+
+	public CafeDTO(int coffee_number, String coffee_name, int coffee_price, String coffee_size) {
 		super();
 		this.coffee_name = coffee_name;
 		this.coffee_price = coffee_price;
 		this.coffee_size = coffee_size;
+		this.coffee_number = coffee_number;
 	}
 
 	public String getDivRow() {
-		return String.format("<div>%s</div>" + "<div>%d</div>" + "<div>%s</div>", coffee_name, coffee_price,
-				coffee_size);
+		return String.format("<div>%d</div>" + "<div>%s</div>" + "<div>%d</div>" + "<div>%s</div>",
+				coffee_number, coffee_name, coffee_price, coffee_size);
 	}
 
 }

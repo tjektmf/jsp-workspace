@@ -13,10 +13,12 @@
   <servlet-class>chap07.servlet.ApplicationServlet</servlet-class>
   </servlet>
   
+  
   <servlet-mapping>
   <servlet-name>appServlet</servlet-name>
   <url-pattern>/</url-pattern>
-  
   </servlet-mapping>
+  
+  
   
 </web-app>
