@@ -93,6 +93,7 @@ public class ApplicationServlet extends HttpServlet {
 
 			if (name == null || price == null || size == null || name.equals("") || price.equals("")
 					|| size.equals("")) {
+
 				req.getRequestDispatcher("/WEB-INF/views/dbtest/insert.jsp").forward(req, resp);
 				return;
 			}
@@ -102,8 +103,8 @@ public class ApplicationServlet extends HttpServlet {
 			}
 
 			try (Connection conn = JdbcConnection.getConnection();
-					PreparedStatement pstmt = conn.prepareStatement("insert into coffee " + "values(coffee_number_seq.nextval,'" + name + "', "
-							+ price + ",'" + size + "' )");
+					PreparedStatement pstmt = conn.prepareStatement("insert into coffee "
+							+ "values(coffee_number_seq.nextval,'" + name + "', " + price + ",'" + size + "' )");
 					ResultSet rs = pstmt.executeQuery();) {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -115,10 +116,14 @@ public class ApplicationServlet extends HttpServlet {
 		} else if (cmd.equals("/dbtest/delete")) {
 			System.out.println("delete로 접근");
 
-			String delete = req.getParameter("delete");
+			int errorNumber = 1;
+			boolean error = true;
+			req.setAttribute("errorNumber", errorNumber);
+			String delete = req.getParameter("deleteMenu");
 			System.out.println(delete);
 
 			if (delete == null || delete.equals("")) {
+				
 				req.getRequestDispatcher("/WEB-INF/views/dbtest/delete.jsp").forward(req, resp);
 				// resp.sendRedirect(req.getContextPath() + "/dbtest/delete?error=1");
 				return;
@@ -138,7 +143,13 @@ public class ApplicationServlet extends HttpServlet {
 						PreparedStatement pstmt2 = conn
 								.prepareStatement("delete from coffee where coffee_name = '" + delete + "'");
 						pstmt2.executeQuery();
-					}
+						error = false;
+					} 
+				}
+				if (error) {
+					System.out.println("on");
+					errorNumber = 0;
+					req.setAttribute("errorNumber", errorNumber);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
