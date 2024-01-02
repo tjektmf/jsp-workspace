@@ -4,11 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcConnection {
+public class DBConnector {
 
 	public static String driverPath = "oracle.jdbc.driver.OracleDriver";
-	public static String url = "jdbc:oracle:thin:@220.121.226.1:1521:XE";
-	public static String id = "secondwind";
+	public static String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	public static String id = "hr";
 	public static String pw = "1234";
 
 	static {

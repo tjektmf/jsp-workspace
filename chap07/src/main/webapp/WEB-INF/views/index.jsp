@@ -16,6 +16,12 @@
 		<li><a href="./dbtest/insert">다른 테이블 데이터 추가(insert) ㅇㅋ</a></li>
 		<li><a href="./dbtest/delete">다른 테이블 데이터 삭제(delete) ㅇㅋ</a></li>
 		<li><a href="./dbtest/update">다른 테이블 데이터 수정(update) ㅇㅋ</a></li>
+		
+		<li><a href="./bread/list">빵 조회</a></li>
+		<li><a href="./bread/add">빵 추가</a></li>
+		<li><a href="./bread/delete">빵 삭제</a></li>
+		<li><a href="./bread/update">빵 셔틀</a></li>
+		
 	</ol>
 
 </body>

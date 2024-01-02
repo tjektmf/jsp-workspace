@@ -8,7 +8,7 @@ public class UriParser {
 		request.getRequestURI();
 		request.getContextPath();
 
-		return request.getRequestURI().substring(request.getContextPath().length());
+		return request.getMethod() + "::" + request.getRequestURI().substring(request.getContextPath().length());
 	}
 
 }
