@@ -21,8 +21,8 @@
 	%>
 </div>
 
-
-	<form action="./" id="form1"></form>
+<br /><br />
+	<form action="../search.jsp" id="form1"></form>
 	<button type="submit" form="form1">뒤로가기</button>
 </body>
 </html>
