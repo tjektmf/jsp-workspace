@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+
+*{
+	box-sizing: border-box;
+}
+
+#star{
+	border: 1px red solid;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+}
+
+#star>*{
+	border: 1px green solid;
+	padding: 5px;
+	text-align: center;
+	
+}
