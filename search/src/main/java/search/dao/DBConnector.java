@@ -1,4 +1,4 @@
-package chap08.database;
+package search.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,15 +11,14 @@ public class DBConnector {
 	public static String id = "hr";
 	public static String pw = "1234";
 
-	// static 으로 묶어야 어디서든 자유롭게 사용함
 	static {
 		try {
 			Class.forName(driverPath);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
 	public static Connection getConnection() throws SQLException {
 		return DriverManager.getConnection(url, id, pw);
 	}
