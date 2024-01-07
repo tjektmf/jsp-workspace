@@ -58,9 +58,9 @@
 
 	<h3>탭 전환</h3>
 
-	<button onclick="showTab(0)" , class="tabBtn">크러스트</button>
-	<button onclick="showTab(1)" , class="tabBtn">토핑</button>
-	<button onclick="showTab(2)" , class="tabBtn">콜라</button>
+	<button onclick="showTab(0)" class="tabBtn">크러스트</button>
+	<button onclick="showTab(1)" class="tabBtn">토핑</button>
+	<button onclick="showTab(2)" class="tabBtn">콜라</button>
 
 	<!-- 크러스트 3 토핑 7 콜라 6 -->
 

@@ -3,19 +3,20 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
+
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>homework.servlet.ApplicationServlet</servlet-class>
+	</servlet>
+ 
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
 		<url-pattern>/resources/*</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>appServlet</servlet-name>
-		<servlet-class>chap08.servlet.ApplicationServlet</servlet-class>
-	</servlet>
-
-
-	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
 </web-app>

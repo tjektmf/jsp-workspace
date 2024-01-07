@@ -1,0 +1,26 @@
+@charset "EUC-KR";
+
+*{
+	box-sizing: border-box;
+}
+
+#gridTable{
+	display: grid;
+	grid-template-columns: 1fr 4fr 2fr 1fr;
+	border: 1px red solid;
+}
+
+#gridTable>*{
+	text-align: center;
+}
+
+#gridTable>:nth-child(4n+2){
+	text-align: left;
+}
+
+.like{
+	border: 1px green solid;
+}
+.mid{
+	text-align: center;
+}

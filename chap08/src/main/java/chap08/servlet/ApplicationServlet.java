@@ -27,7 +27,6 @@ public class ApplicationServlet extends HttpServlet {
 		uriMapping.put("POST::/show/firstName", new FirstNameWebProcess());
 		uriMapping.put("POST::/show/lastName", new LastNameWebProcess());
 		uriMapping.put("POST::/show/departmentName", new DepartmentNameWebProcess());
-
 	}
 
 	@Override
@@ -39,7 +38,6 @@ public class ApplicationServlet extends HttpServlet {
 		System.out.println("2 : " + uriMapping.get(cmd).process(req));
 
 		req.getRequestDispatcher(page).forward(req, resp);
-
 	}
 
 }
