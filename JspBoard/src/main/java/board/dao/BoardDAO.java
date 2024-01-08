@@ -40,14 +40,14 @@ public class BoardDAO {
 		) {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
-				
+
 				BoardDTO dto = new BoardDTO();
 				dto.setBoard_id(rs.getInt("board_id"));
 				dto.setBoard_title(rs.getString("board_title"));
 				dto.setBoard_writer(rs.getString("board_writer"));
 				dto.setView_count(rs.getInt("view_count"));
 				dto.setWrite_date(rs.getDate("write_date"));
-				
+
 				list.add(dto);
 			}
 
@@ -55,8 +55,51 @@ public class BoardDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return list;
+	}
+
+	public BoardDTO get(int pk) {
+		String sql = "select * from myboard where board_id = ?";
+		BoardDTO detail = new BoardDTO();
+
+		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setInt(1, pk);
+
+			try (ResultSet rs = pstmt.executeQuery();) {
+
+				rs.next();
+				detail.setBoard_id(rs.getInt("board_id"));
+				detail.setBoard_title(rs.getString("board_title"));
+				detail.setBoard_content(rs.getString("board_content"));
+				detail.setBoard_writer(rs.getString("board_writer"));
+				detail.setView_count(rs.getInt("view_count"));
+				detail.setBoard_password(rs.getString("board_password"));
+				detail.setWrite_date(rs.getDate("write_date"));
+
+			}
+			return detail;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+	}
+
+	public int plusView(int pk) {
+
+		String sql = "update myboard set view_count = view_count+1 where board_id = ?";
+
+		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setInt(1, pk);
+			return pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return 1;
+		}
 
 	}
 

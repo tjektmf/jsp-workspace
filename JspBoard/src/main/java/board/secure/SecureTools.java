@@ -24,9 +24,6 @@ public class SecureTools {
 			e.printStackTrace();
 			return "";
 		}
-		
-		
-		
 	}
 
 }

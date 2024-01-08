@@ -24,6 +24,7 @@ public class ApplicationServlet extends HttpServlet {
 		uriMapping.put("GET:/list", BoardListService.getInstance());
 		uriMapping.put("GET:/write", new BoardWriteFormService());
 		uriMapping.put("POST:/write", BoardWriteService.getInstance());
+		uriMapping.put("GET:/detail", new BoardDetailService());
 
 	}
 
@@ -33,7 +34,7 @@ public class ApplicationServlet extends HttpServlet {
 		req.setCharacterEncoding("EUC-KR");
 
 		String cmd = req.getMethod() + ":" + req.getRequestURI().substring(req.getContextPath().length());
-		String nextView = uriMapping.get(cmd).service(req);
+		String nextView = uriMapping.get(cmd).service(req, resp);
 		System.out.println(nextView);
 
 		if (nextView.startsWith(REDIRECT_PREFIX)) {

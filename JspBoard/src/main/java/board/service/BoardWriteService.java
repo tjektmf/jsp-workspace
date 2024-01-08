@@ -1,6 +1,7 @@
 package board.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import board.dao.BoardDAO;
 import board.dto.BoardDTO;
@@ -18,7 +19,7 @@ public class BoardWriteService implements Service {
 	BoardDAO dao = new BoardDAO();
 
 	@Override
-	public String service(HttpServletRequest request) {
+	public String service(HttpServletRequest request, HttpServletResponse response) {
 
 		String board_title = request.getParameter("board_title");
 		String board_content = request.getParameter("board_content");

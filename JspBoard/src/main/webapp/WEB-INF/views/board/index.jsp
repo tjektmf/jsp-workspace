@@ -35,7 +35,7 @@
 	<button id="writeBtn">±Û¾²±â</button>
 	
 	
-	
+	<!-- 
 	<script>
 	const writeBtn = document.querySelector('#writeBtn');
 
@@ -45,9 +45,10 @@
 	
 	</script>
 	
+	 -->
 	
 
-	<c:url value="resources/board/js/index.js" var="indexJS"></c:url>
+	<c:url value="/resources/board/js/inde.js" var="indexJS"></c:url>
 	<c:url value="./write" var="writePageURL"></c:url>
 	<script>
 		const writePageURL = '${writePageURL}';
