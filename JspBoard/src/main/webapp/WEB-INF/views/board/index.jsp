@@ -47,7 +47,7 @@
 	
 	 -->
 	
-
+	<!-- const indexJS = /resources/board/js/inde.js; 대충 이런뜻임 -->
 	<c:url value="/resources/board/js/inde.js" var="indexJS"></c:url>
 	<c:url value="./write" var="writePageURL"></c:url>
 	<script>

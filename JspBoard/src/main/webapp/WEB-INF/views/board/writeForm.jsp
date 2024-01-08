@@ -9,6 +9,7 @@
 <body>
 <h1>글쓰기</h1>
 
+<!-- ./write 이런거로 대충 보내버리고 서블릿에서 post 값이랑 같이 활용 -->
 <form action="./write" method="POST" id="writeForm">
 글 제목 : <input type="text" name="board_title" /><br />
 글쓴사람 : <input type="text" name="board_writer" />
