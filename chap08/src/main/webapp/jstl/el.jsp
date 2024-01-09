@@ -120,8 +120,8 @@ pageContext.setAttribute("stu", stu);
 	<core:set var="food" value="6°³Àå1"></core:set>
 	<script>
 		const food = 'À°°³Àå';
-		console.log(`¤¾¤·¤¾¤·${food}`);
-		console.log(`¤¾¤·¤¾¤·${'${food}'}`);
+		console.log(`¤¾¤·¤¾¤·${food}`); // 6°³Àå1
+		console.log(`¤¾¤·¤¾¤·${'${food}'}`); // À°°³Àå
 	</script>
 
 

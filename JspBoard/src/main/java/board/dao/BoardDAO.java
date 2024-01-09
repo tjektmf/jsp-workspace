@@ -98,9 +98,41 @@ public class BoardDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return 1;
+			return -1;
 		}
 
+	}
+
+	public int modify(BoardDTO dto) {
+		String sql = "update myboard set board_title=?, board_content=? where board_id=?";
+
+		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setString(1, dto.getBoard_title());
+			pstmt.setString(2, dto.getBoard_content());
+			pstmt.setInt(3, dto.getBoard_id());
+
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return -1;
+		}
+	}
+
+	public int delete(int pk) {
+		String sql = "delete from myboard where board_id = ?";
+
+		try (Connection conn = DBConnector.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql);) {
+
+			pstmt.setInt(1, pk);
+			return pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return -1;
+		}
 	}
 
 }

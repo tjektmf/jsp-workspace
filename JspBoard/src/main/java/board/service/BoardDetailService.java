@@ -16,6 +16,7 @@ public class BoardDetailService implements Service {
 
 		int board_id = Integer.parseInt(request.getParameter("board_id"));
 
+		// 쿠키는 특정쿠키 한개를 꺼낼 수는 없음 쿠키배열로 전부 꺼내야함
 		Cookie[] cookies = request.getCookies();
 		boolean exist = false;
 
