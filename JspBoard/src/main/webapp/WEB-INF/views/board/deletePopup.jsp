@@ -14,7 +14,7 @@
 	<h5 id="out2"></h5>
 
 
-	<input id="inputPassword" type="password" name="borad_password" />
+	<input id="inputPassword" type="password" name="board_password" />
 	<button id="confirmBtn">확인</button>
 
 	<script
@@ -31,7 +31,7 @@
 		
 		
 		out.innerText = '삭제하려는 글의 번호 : ' + delForm.elements.board_id.value;
-		out.innerText = '삭제하려는 글의 비번 해쉬값 : ' + delForm.elements.check_password.value;
+		out2.innerText = '삭제하려는 글의 비번 해쉬값 : ' + delForm.elements.check_password.value;
 		
 		const getHashedPassword = password => sha256(password).toUpperCase();
 		
@@ -42,7 +42,7 @@
 				
 				if	(hashedPassword === delForm.elements.check_password.value){
 					hiddenPassword.value=hashedPassword;
-					hiddenPassword.value = inputPassword.value;
+					
 					delForm.submit();
 					window.close();
 				} else {

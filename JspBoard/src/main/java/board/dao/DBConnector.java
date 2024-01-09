@@ -9,7 +9,7 @@ public class DBConnector {
 	public static String driverPath = "oracle.jdbc.driver.OracleDriver";
 	public static String url = "jdbc:oracle:thin:@localhost:1521:XE";
 	public static String id = "hr";
-	public static String pw = "1234";
+	public static String pw = "hr";
 
 	static {
 		try {
