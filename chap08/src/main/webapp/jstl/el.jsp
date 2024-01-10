@@ -47,7 +47,9 @@ pageContext.setAttribute("stu", stu);
 	<ul>
 		<li>객체를 그냥 출력하는 경우 해당 객체의 toString()을 호출해 사용</li>
 		<li>해당 객체에 .을 찍고 속성을 호출하면 실제로는 해당 객체의 Getter 메서드를 호출해 사용한다</li>
-
+		<!-- 위에 <'%%'> 를 통해서 pageContext.setAttribute("stu", stu);
+		어트리뷰트에 값을 등록했기 때문에 ${stu}를 사용할 수 있는거임
+		만약 pageContext.setAttribute("stustu", stu); 였으면 ${stustu}를 써야함 -->
 		<li>${stu}</li>
 		<!-- getter 메서드를 호출하므로 메서드에 오타가 있거나 private 등 못 읽어오는 상황이면 오류가 발생함 -->
 		<li>${stu.stu_kor}</li>
@@ -69,6 +71,9 @@ pageContext.setAttribute("stu", stu);
 			<th>영어</th>
 			<th>수학</th>
 		</tr>
+		<!-- 맨 위에서 어트리뷰트 키 stus 값에는 밸류로 포타슘을 넣었으니 아래에 포타슘이 나옴 -->
+		<!-- var="student" 를 통해 stus를 student 로 바꿨으므로 stus.AA 가 아니라 student.AA를 써야함 
+		var="student"가 없었다면 그냥 ${stus}를 쓰면됨 request.getAttribute("stus") = ${stus} 같은거임 -->
 		<core:forEach items="${stus}" var="student">
 			<tr>
 				<td>${student.stu_id}</td>
@@ -113,17 +118,14 @@ pageContext.setAttribute("stu", stu);
 	<div>${a%10 eq 0 ? a/10 : a/10+1}</div>
 	<hr />
 
-
-
-
-
-	<core:set var="food" value="6개장1"></core:set>
+	<core:set var="food" value="ㄴㄴ"></core:set>
 	<script>
 		const food = '육개장';
-		console.log(`ㅎㅇㅎㅇ${food}`); // 6개장1
-		console.log(`ㅎㅇㅎㅇ${'${food}'}`); // 육개장
+		console.log(`${food}`); // ㄴㄴ
+		console.log(`${'${food}'}`); // 육개장 
+		console.log(`${'ddddddddd'}`);
+		console.log('${food}');
 	</script>
-
 
 </body>
 </html>

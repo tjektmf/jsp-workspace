@@ -15,7 +15,8 @@ public class BoardDAO {
 		String sql = "insert into myboard(board_id, board_title, board_content, "
 				+ "board_password, board_writer) values (myboard_id_seq.nextval, ?, ?, ?, ?)";
 
-		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 			pstmt.setString(1, dto.getBoard_title());
 			pstmt.setString(2, dto.getBoard_content());
 			pstmt.setString(3, dto.getBoard_password());
@@ -23,7 +24,7 @@ public class BoardDAO {
 
 			return pstmt.executeUpdate();
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return 1;
@@ -33,11 +34,11 @@ public class BoardDAO {
 
 	public List<BoardDTO> getList() {
 		String sql = "select board_id, board_title, board_writer, view_count, write_date from myboard order by board_id desc";
+		
 		List<BoardDTO> list = new ArrayList<>();
 
-		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);
-
-		) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 
@@ -51,7 +52,7 @@ public class BoardDAO {
 				list.add(dto);
 			}
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -59,14 +60,20 @@ public class BoardDAO {
 	}
 
 	public BoardDTO get(int pk) {
+		// 매개변수 pk(board_id) 와 일치하는 board_id 의 행만 보여줌
+		// 즉 특정 게시글을 선택하면 그 글에 대한 정보를 보여주는 메서드
 		String sql = "select * from myboard where board_id = ?";
+
+		// detail.jsp 에
 		BoardDTO detail = new BoardDTO();
 
-		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 			pstmt.setInt(1, pk);
 
 			try (ResultSet rs = pstmt.executeQuery();) {
 
+				// pk는 하나고 pk와 일치하는 board_id도 하나니까 rs.next() 값도 한개임
 				rs.next();
 				detail.setBoard_id(rs.getInt("board_id"));
 				detail.setBoard_title(rs.getString("board_title"));
@@ -75,11 +82,10 @@ public class BoardDAO {
 				detail.setView_count(rs.getInt("view_count"));
 				detail.setBoard_password(rs.getString("board_password"));
 				detail.setWrite_date(rs.getDate("write_date"));
-
 			}
 			return detail;
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -91,11 +97,12 @@ public class BoardDAO {
 
 		String sql = "update myboard set view_count = view_count+1 where board_id = ?";
 
-		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 			pstmt.setInt(1, pk);
 			return pstmt.executeUpdate();
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;
@@ -106,13 +113,14 @@ public class BoardDAO {
 	public int modify(BoardDTO dto) {
 		String sql = "update myboard set board_title=?, board_content=? where board_id=?";
 
-		try (Connection conn = DBConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 			pstmt.setString(1, dto.getBoard_title());
 			pstmt.setString(2, dto.getBoard_content());
 			pstmt.setInt(3, dto.getBoard_id());
 
 			return pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;
@@ -122,13 +130,13 @@ public class BoardDAO {
 	public int delete(int pk) {
 		String sql = "delete from myboard where board_id = ?";
 
-		try (Connection conn = DBConnector.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (DBSession session = DBConnector.getSession(); 
+				PreparedStatement pstmt = session.prepareStatement(sql);) {
 
 			pstmt.setInt(1, pk);
 			return pstmt.executeUpdate();
 
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return -1;

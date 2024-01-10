@@ -37,6 +37,16 @@
 			type="hidden" name="board_password">
 	</form>
 
+	<hr />
+
+	<c:forEach items="${replies}" var="reply">
+		<div>[${reply.reply_writer}] ${reply.reply_content}
+			${reply.reply_date}</div>
+	</c:forEach>
+
+	<hr />
+
+
 
 	<div id="replyWriteDiv">
 		<textarea name="reply_content" id="replyContent" rows="5" cols="50"
@@ -44,9 +54,9 @@
 		<br />
 		<button id="replyWriteBtn" form="replyForm">댓글 쓰기</button>
 		<button>댓글 삭제</button>
-		<br /> 
-		댓글쓴사람<input id="replyWriter" type="text" name="reply_writer" form="replyForm" />
-		비밀번호<input id="replyPassword"type="password" name="reply_password" form="replyForm" />
+		<br /> 댓글쓴사람<input id="replyWriter" type="text" name="reply_writer"
+			form="replyForm" /> 비밀번호<input id="replyPassword" type="password"
+			name="reply_password" form="replyForm" />
 	</div>
 
 

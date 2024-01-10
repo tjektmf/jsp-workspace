@@ -19,7 +19,6 @@ public class ApplicationServlet extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-
 		uriMapping.put("GET:/", BoardListService.getInstance());
 		uriMapping.put("GET:/list", BoardListService.getInstance());
 		uriMapping.put("GET:/write", new BoardWriteFormService());
@@ -29,13 +28,14 @@ public class ApplicationServlet extends HttpServlet {
 		uriMapping.put("POST:/modify", new BoardModifyService());
 		uriMapping.put("POST:/delete", new BoardDeleteService());
 		uriMapping.put("GET:/delete/open", new DeletePopupService());
-
+		uriMapping.put("POST:/reply/add", new ReplyAddService());
 	}
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		req.setCharacterEncoding("EUC-KR");
+		
 
 		String cmd = req.getMethod() + ":" + req.getRequestURI().substring(req.getContextPath().length());
 		String nextView = uriMapping.get(cmd).service(req, resp);
