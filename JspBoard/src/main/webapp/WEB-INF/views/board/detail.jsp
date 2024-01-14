@@ -52,6 +52,16 @@
 			type="hidden" name="board_password">
 	</form>
 
+	<hr />
+
+	<c:forEach items="${replies}" var="reply">
+		<div>[${reply.reply_writer}] ${reply.reply_content}
+			${reply.reply_date}</div>
+	</c:forEach>
+
+	<hr />
+
+
 
 	<div id="replyWriteDiv">
 		<textarea name="reply_content" id="replyContent" rows="5" cols="50"
@@ -60,8 +70,10 @@
 		ID<input id="replyWriter" type="text" name="reply_writer" form="replyForm" />
 		PW<input id="replyPassword"type="password" name="reply_password" form="replyForm" />
 		<button id="replyWriteBtn" form="replyForm">´ñ±Û ¾²±â</button>
+
 	<!-- 	<button>´ñ±Û »èÁ¦</button>  -->
 		<br /> 
+
 	</div>
 
 

@@ -9,7 +9,7 @@ const delForm = document.querySelector('#delForm');
 const getHashedPassword = password => sha256(password).toUpperCase();
 const checkHash = () => boardPassword === getHashedPassword(inputPassword.value);
 
-console.log('11111111');
+
 // boardPassword detail.jsp
 modiBtn.addEventListener('click', () => {
 
