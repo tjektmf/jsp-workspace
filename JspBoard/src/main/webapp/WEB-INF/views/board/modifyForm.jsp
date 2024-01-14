@@ -14,8 +14,8 @@ ${oldData} <br />
 
 
 	글 제목 : <input name="board_title" type="text" value="${oldData.board_title}"  form="modiForm" /><br /> 
-	글쓴사람 : ${oldData.board_writer}
-	조회수 : ${oldData.view_count} 작성일 : ${oldData.write_date}<br />
+	ID : ${oldData.board_writer}
+	조회수 : ${oldData.view_count} DATE : ${oldData.write_date}<br />
 	<textarea name="board_content" rows="10" cols="30"  form="modiForm">${oldData.board_content}</textarea><br />
 	
 	<button id="modiConfirmBtn">수정완료</button>
