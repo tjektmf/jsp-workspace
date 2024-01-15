@@ -42,8 +42,10 @@
 	<br />
 	<button id="modiBtn">수정하기</button>
 	<button id="delBtn">삭제하기</button>
+	<!-- 
 	<button id="delBtn2">삭제하기2</button>
-	<br /><hr />
+	 -->
+	<br />
 
 	<form id="delForm" action="./delete" method="POST">
 		<input type="hidden" name="board_id" value="${detail.board_id}">
@@ -52,7 +54,6 @@
 			type="hidden" name="board_password">
 	</form>
 
-	<hr />
 
 	<c:forEach items="${replies}" var="reply">
 		<div>[${reply.reply_writer}] ${reply.reply_content}
@@ -64,11 +65,11 @@
 
 
 	<div id="replyWriteDiv">
-		<textarea name="reply_content" id="replyContent" rows="5" cols="50"
-			form="replyForm" placeholder="댓글 아직 못씀"></textarea>
+		<textarea name="reply_content" id="replyContent" rows="2" cols="50"
+			form="replyForm" placeholder="댓글이야"></textarea>
 		<br />
-		ID<input id="replyWriter" type="text" name="reply_writer" form="replyForm" />
-		PW<input id="replyPassword"type="password" name="reply_password" form="replyForm" />
+		ID <input id="replyWriter" type="text" name="reply_writer" form="replyForm" />
+		PW <input id="replyPassword"type="password" name="reply_password" form="replyForm" />
 		<button id="replyWriteBtn" form="replyForm">댓글 쓰기</button>
 
 	<!-- 	<button>댓글 삭제</button>  -->

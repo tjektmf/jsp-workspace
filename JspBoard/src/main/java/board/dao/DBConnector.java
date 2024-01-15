@@ -11,7 +11,7 @@ public class DBConnector {
 	public static Set<DBSession> sessions = new HashSet<>();
 
 	public static String driverPath = "oracle.jdbc.driver.OracleDriver";
-	public static String url = "jdbc:oracle:thin:@localhost:1521:XE";
+	public static String url = "jdbc:oracle:thin:@14.56.25.150:1521:XE";
 	public static String id = "hr";
 	public static String pw = "1234";
 
