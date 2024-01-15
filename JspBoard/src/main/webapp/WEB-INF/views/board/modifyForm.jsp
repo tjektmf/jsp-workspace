@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- taglib 무조건 달아야함 이건 스프링에서도 해야되더라 -->    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>수정하기 ㅇㅅㅇ/</title>
 </head>
 <body>
 
+<!-- 서블릿을 통해 oldData 라는 이름으로 어트리뷰트에 해당 글번호(Board_id)에 대한 데이터를 실어왔음 -->
 ${oldData} <br />
 
-
+	<!-- 키(oldData)에 대한 밸류(BoardDTO) 값을 사용할때 .을 통해 게터메서드를 불러옴 대소문자 중요-->
 	글 제목 : <input name="board_title" type="text" value="${oldData.board_title}"  form="modiForm" /><br /> 
 	ID : ${oldData.board_writer}
 	조회수 : ${oldData.view_count} DATE : ${oldData.write_date}<br />

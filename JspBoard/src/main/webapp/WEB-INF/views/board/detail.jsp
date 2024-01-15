@@ -91,7 +91,7 @@
 	<c:url value="/resources/board/js/detailReply.js" var="detailReplyJS" />
 
 	<script>
-		const boardPassword = '${detail.board_password}'; // ''따움표 붙어있으면 문자열 안붙어있으면 문자열이더라도 숫자로 받아들인다
+		const boardPassword = '${detail.board_password}'; // ''따움표 붙어있으면 문자열, 안붙어있으면 문자열이더라도 숫자로 받아들인다
 		const board_id = ${detail.board_id}; // out.print하는곳 웹 페이지 문자열로 output
 	</script>
 
