@@ -30,8 +30,8 @@
 		
 		
 		
-		out.innerText = '삭제하려는 글의 번호 : ' + delForm.elements.board_id.value;
-		out2.innerText = '삭제하려는 글의 비번 해쉬값 : ' + delForm.elements.check_password.value;
+		out.innerText = 'ID : ' + delForm.elements.board_id.value;
+		out2.innerText = 'HashCode : ' + delForm.elements.check_password.value;
 		
 		const getHashedPassword = password => sha256(password).toUpperCase();
 		

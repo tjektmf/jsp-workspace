@@ -47,11 +47,15 @@
 	 -->
 	<br />
 
+	<!-- 
+	form을 통해 POST 방식으로 데이터를 ./delete을 통해 서블릿으로 전달함 
+	보여주기 싫은 값은 input태그 타입 hidden으로 숨겨서 전달함
+	
+	-->
 	<form id="delForm" action="./delete" method="POST">
 		<input type="hidden" name="board_id" value="${detail.board_id}">
-		<input type="hidden" name="check_password"
-			value="${detail.board_password}"> <input id="hiddenPassword"
-			type="hidden" name="board_password">
+		<input type="hidden" name="check_password" value="${detail.board_password}"> 
+		<input id="hiddenPassword" type="hidden" name="board_password">
 	</form>
 
 
