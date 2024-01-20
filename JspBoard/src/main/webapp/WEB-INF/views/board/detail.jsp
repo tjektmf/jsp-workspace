@@ -91,7 +91,10 @@
 
 	</div>
 
-
+	<!-- 
+		form id를 이용하면 form tag 밖에서도 form에 실어서 data를 보낼 수 있다 
+		마찬가지로 보여주기 어색하거나 보여주기 싫은 값은 type="hidden"
+	-->
 	<form id="replyForm" action="./reply/add" method="post">
 		<input type="hidden" name="board_id" value="${detail.board_id}" />
 	</form>
@@ -105,9 +108,13 @@
 	<c:url value="/resources/board/js/sha256.js" var="sha256" />
 	<c:url value="/resources/board/js/detailReply.js" var="detailReplyJS" />
 
+
 	<script>
-		const boardPassword = '${detail.board_password}'; // ''따움표 붙어있으면 문자열, 안붙어있으면 문자열이더라도 숫자로 받아들인다
-		const board_id = ${detail.board_id}; // out.print하는곳 웹 페이지 문자열로 output
+		const boardPassword = '${detail.board_password}'; 
+		// 작은따옴표 붙어있으면 문자열, 안붙어있으면 문자열이더라도 숫자로 받아들인다
+		// 근데 JS 인데 상관이 있나 ? 타입다르면 ==로 비교하면 되긴함
+		const board_id = ${detail.board_id}; 
+		// out.print하는곳 웹 페이지 문자열로 output
 	</script>
 
 	<script src="${sha256}"></script>

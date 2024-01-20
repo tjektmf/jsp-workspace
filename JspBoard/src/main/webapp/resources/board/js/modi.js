@@ -9,9 +9,11 @@ const modiForm = document.querySelector('#modiForm');
 // 1. form 을 버튼태그나 인풋태그를 통해 서밋하지 않고 JS로 form.submit() 으로 가능
 // 2. 요소의 특정 값을 꺼낼 때 .value를 사용해야 해야함 ex) board_id.value
 
+// 변수인데 함수랑 비슷한 효과임 function 이나 const나 그게 그거임
 const validateForm = () => {
 	// board_title 내부에 수십개가 넘는 값들이 있고 우리가 원하는 값을 찾으려면 .value 해야함
 	// 예를 들면 뭐 온클릭이 있고 없고 id여부 클래스여부 정렬여부 그냥 모든정보다 다 들어있음 여기서 .value만 찾음
+	// 만약 로그찍어봤는데 값이 안나오면 내부에 어떤 형식으로 값을 가지고 있는지 확인해야함
 	// trim 은 공백을 없앰
 	if (modiForm.elements.board_title.value.trim() == '') {
 		alert('제목이 텅텅');
@@ -33,7 +35,11 @@ modiConfirmBtn.addEventListener('click', (e) => {
 	validateForm() ? modiForm.submit() : 0;
 });
 
+// 에프12해서 요소 정보를 활용하는게 중요함
+
 // 이 폼에서 submit이 발생하는 경우 실행되는 이벤트
+// 이벤트리스너에서 클릭할 때 발동하는 'click' 말고도 
+// 폼에서 submit 할 때 발동하는 'submit' 도 있음, readystatechage 같은 다른것도 쓰이긴함
 modiForm.addEventListener('submit', (e) => {
 	if (!validateForm()) {
 		e.preventDefault(); // 기본동작을 막음 (submit 중단)

@@ -14,6 +14,7 @@
 ${oldData} <br />
 
 	<!-- 키(oldData)에 대한 밸류(BoardDTO) 값을 사용할때 .을 통해 게터메서드를 불러옴 대소문자 중요-->
+	<!-- 데이터를 수정하는 페이지로 수정하면 안되는 글번호나 ID 글쓴날짜 조회수 이런건 태그없이 데이터만 불러옴 -->
 	글 제목 : <input name="board_title" type="text" value="${oldData.board_title}"  form="modiForm" /><br /> 
 	ID : ${oldData.board_writer}
 	조회수 : ${oldData.view_count} DATE : ${oldData.write_date}<br />
